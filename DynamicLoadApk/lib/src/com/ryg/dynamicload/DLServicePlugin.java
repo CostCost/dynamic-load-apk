@@ -10,27 +10,16 @@ import com.ryg.dynamicload.internal.DLPluginPackage;
 
 public interface DLServicePlugin {
 
-    public void onCreate(); 
-
-    public void onStart(Intent intent, int startId); 
-    
-    public int onStartCommand(Intent intent, int flags, int startId);
-    
-    public void onDestroy();
-    
-    public void onConfigurationChanged(Configuration newConfig); 
-    
-    public void onLowMemory();
-    
-    public void onTrimMemory(int level);
-    
-    public IBinder onBind(Intent intent);
-    
-    public boolean onUnbind(Intent intent);
-    
-    public void onRebind(Intent intent);
-    
-    public void onTaskRemoved(Intent rootIntent); 
-    
-    public void attach(Service proxyService, DLPluginPackage pluginPackage);
+    void onCreate(); 
+    void onStart(Intent intent, int startId);
+    int onStartCommand(Intent intent, int flags, int startId);
+    void onDestroy();
+    void onConfigurationChanged(Configuration newConfig);
+    void onLowMemory();
+    void onTrimMemory(int level);
+    IBinder onBind(Intent intent);
+    boolean onUnbind(Intent intent);
+    void onRebind(Intent intent);
+    void onTaskRemoved(Intent rootIntent);
+    void attach(Service proxyService, DLPluginPackage pluginPackage);
 }

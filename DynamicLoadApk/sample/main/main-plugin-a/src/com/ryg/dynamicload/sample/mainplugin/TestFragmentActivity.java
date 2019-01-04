@@ -17,8 +17,7 @@ import com.ryg.dynamicload.internal.DLIntent;
 import com.ryg.dynamicload.internal.DLPluginManager;
 import com.ryg.dynamicload.sample.mainplugina.R;
 
-public class TestFragmentActivity extends DLBasePluginFragmentActivity
-        implements OnClickListener {
+public class TestFragmentActivity extends DLBasePluginFragmentActivity implements OnClickListener {
 
     private static final String TAG = "TestFragmentActivity";
 
@@ -34,8 +33,7 @@ public class TestFragmentActivity extends DLBasePluginFragmentActivity
 
         setContentView(R.layout.test);
         // 输出Parcelable对象信息
-        Toast.makeText(that, getIntent().getExtras().getParcelable("person").toString(),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(that, getIntent().getExtras().getParcelable("person").toString(), Toast.LENGTH_SHORT).show();
 
         Log.d(TAG, "### person info : " + getIntent().getExtras().getParcelable("person"));
         TestButton button = (TestButton) findViewById(R.id.button1);
@@ -78,18 +76,15 @@ public class TestFragmentActivity extends DLBasePluginFragmentActivity
         if (v == mShowFragmentButton) {
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.fragment_container,
-                    new TestFragment().setPluginPackageName(getPackageName()));
+            transaction.add(R.id.fragment_container, new TestFragment().setPluginPackageName(getPackageName()));
             transaction.addToBackStack("TestFragment#1");
             transaction.commit();
         } else if (v == mStartPluginB) {
-            int result = startPluginActivity(new DLIntent("com.ryg.dynamicload.sample.mainpluginb",
-                    ".MainActivity"));
+            int result = startPluginActivity(new DLIntent("com.ryg.dynamicload.sample.mainpluginb", ".MainActivity"));
             if (result != DLPluginManager.START_RESULT_SUCCESS) {
                 Toast.makeText(this, "start Activity failed", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
 }

@@ -25,5 +25,5 @@ import com.ryg.dynamicload.DLServicePlugin;
  */
 public interface DLServiceAttachable {
     
-    public void attach(DLServicePlugin remoteService, DLPluginManager pluginManager);
+    void attach(DLServicePlugin remoteService, DLPluginManager pluginManager);
 }

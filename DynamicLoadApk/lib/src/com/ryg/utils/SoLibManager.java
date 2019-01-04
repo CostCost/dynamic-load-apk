@@ -55,8 +55,7 @@ public final class SoLibManager {
      */
     private static String sNativeLibDir = "";
 
-    private SoLibManager() {
-    }
+    private SoLibManager() { }
 
     /**
      * @return
@@ -214,8 +213,6 @@ public final class SoLibManager {
                 Log.e(TAG, "copy so lib failed: " + e.toString());
                 e.printStackTrace();
             }
-
         }
-
     }
 }

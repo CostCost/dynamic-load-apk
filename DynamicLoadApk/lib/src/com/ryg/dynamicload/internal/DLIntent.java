@@ -20,6 +20,7 @@ package com.ryg.dynamicload.internal;
 
 import android.content.Intent;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.ryg.utils.DLConfigs;
 
@@ -27,8 +28,6 @@ import java.io.Serializable;
 
 public class DLIntent extends Intent {
     
-    
-
     private String mPluginPackage;
     private String mPluginClass;
 
@@ -73,12 +72,14 @@ public class DLIntent extends Intent {
         this.mPluginClass = clazz.getName();
     }
 
+    @NonNull
     @Override
     public Intent putExtra(String name, Parcelable value) {
         setupExtraClassLoader(value);
         return super.putExtra(name, value);
     }
 
+    @NonNull
     @Override
     public Intent putExtra(String name, Serializable value) {
         setupExtraClassLoader(value);

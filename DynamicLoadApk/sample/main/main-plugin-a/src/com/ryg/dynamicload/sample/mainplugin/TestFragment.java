@@ -24,14 +24,13 @@ public class TestFragment extends Fragment implements OnClickListener{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.test_fragment, container, false);
     }
 
     @Override
     public void onResume() {
-        button1 = (Button)(getView().findViewById(R.id.button1));
+        button1 = getView().findViewById(R.id.button1);
         button1.setOnClickListener(this);
         super.onResume();
     }
@@ -48,7 +47,6 @@ public class TestFragment extends Fragment implements OnClickListener{
             DLIntent dlIntent = new DLIntent(mPluginPackageName, MainActivity.class);
             DLPluginManager.getInstance(context).startPluginActivity(context, dlIntent);
         }
-        
     }
 
 }

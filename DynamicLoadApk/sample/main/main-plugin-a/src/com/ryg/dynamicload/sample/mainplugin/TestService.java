@@ -17,39 +17,31 @@ public class TestService extends DLBasePluginService {
         
         @Override
         public int sum(int a, int b) {
-            // TODO Auto-generated method stub
             return a + b;
         }
     }
     
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
         Log.e(TAG, "onBind");
         return mBinder;
     } 
     
     @Override
     public boolean onUnbind(Intent intent) {
-        // TODO Auto-generated method stub
         Log.e(TAG, "onUnbind");
         return super.onUnbind(intent);
     }
     
     @Override
     public void onCreate() {
-        // TODO Auto-generated method stub
         super.onCreate();
         Log.e(TAG, "onCreate");
     }
     
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // TODO Auto-generated method stub
         Log.e(TAG, "onStartCommand " + this.toString());
         return super.onStartCommand(intent, flags, startId);
     }
-
-    
-    
 }

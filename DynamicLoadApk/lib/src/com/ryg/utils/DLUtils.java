@@ -35,6 +35,7 @@ import java.io.Closeable;
 import java.io.IOException;
 
 public class DLUtils {
+
     private static final String TAG = "DLUtils";
 
     public static PackageInfo getPackageInfo(Context context, String apkFilepath) {

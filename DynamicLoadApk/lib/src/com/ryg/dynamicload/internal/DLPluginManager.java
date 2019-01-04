@@ -76,7 +76,7 @@ public class DLPluginManager {
 
     private static DLPluginManager sInstance;
     private Context mContext;
-    private final HashMap<String, DLPluginPackage> mPackagesHolder = new HashMap<String, DLPluginPackage>();
+    private final HashMap<String, DLPluginPackage> mPackagesHolder = new HashMap<>();
 
     private int mFrom = DLConstants.FROM_INTERNAL;
 
@@ -105,19 +105,16 @@ public class DLPluginManager {
      * Load a apk. Before start a plugin Activity, we should do this first.<br/>
      * NOTE : will only be called by host apk.
      * 
-     * @param dexPath
+     * @param dexPath dex path, the file path of apk file
      */
     public DLPluginPackage loadApk(String dexPath) {
-        // when loadApk is called by host apk, we assume that plugin is invoked
-        // by host.
+        // when loadApk is called by host apk, we assume that plugin is invoked by host.
         return loadApk(dexPath, true);
     }
 
     /**
-     * @param dexPath
-     *            plugin path
-     * @param hasSoLib
-     *            whether exist so lib in plugin
+     * @param dexPath plugin path
+     * @param hasSoLib whether exist so lib in plugin
      * @return
      */
     public DLPluginPackage loadApk(final String dexPath, boolean hasSoLib) {
@@ -138,6 +135,8 @@ public class DLPluginManager {
     }
 
     /**
+     * 准备插件的运行环境
+     *
      * prepare plugin runtime env, has DexClassLoader, Resources, and so on.
      * 
      * @param packageInfo
@@ -450,7 +449,7 @@ public class DLPluginManager {
     }
 
     private interface OnFetchProxyServiceClass {
-        public void onFetch(int result, Class<? extends Service> proxyServiceClass);
+        void onFetch(int result, Class<? extends Service> proxyServiceClass);
     }
 
 }

@@ -39,8 +39,7 @@ public class DLPluginPackage {
     public Resources resources;
     public PackageInfo packageInfo;
 
-    public DLPluginPackage(DexClassLoader loader, Resources resources,
-            PackageInfo packageInfo) {
+    public DLPluginPackage(DexClassLoader loader, Resources resources, PackageInfo packageInfo) {
         this.packageName = packageInfo.packageName;
         this.classLoader = loader;
         this.assetManager = resources.getAssets();
@@ -50,7 +49,7 @@ public class DLPluginPackage {
         defaultActivity = parseDefaultActivityName();
     }
 
-    private final String parseDefaultActivityName() {
+    private String parseDefaultActivityName() {
         if (packageInfo.activities != null && packageInfo.activities.length > 0) {
             return packageInfo.activities[0].name;
         }

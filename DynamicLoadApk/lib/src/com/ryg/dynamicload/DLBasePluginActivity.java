@@ -26,6 +26,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -129,7 +130,7 @@ public class DLBasePluginActivity extends Activity implements DLPlugin {
     }
 
     @Override
-    public View findViewById(int id) {
+    public <T extends View> T findViewById(int id) {
         if (mFrom == DLConstants.FROM_INTERNAL) {
             return super.findViewById(id);
         } else {
@@ -173,6 +174,7 @@ public class DLBasePluginActivity extends Activity implements DLPlugin {
         }
     }
 
+    @NonNull
     @Override
     public LayoutInflater getLayoutInflater() {
         if (mFrom == DLConstants.FROM_INTERNAL) {
@@ -182,6 +184,7 @@ public class DLBasePluginActivity extends Activity implements DLPlugin {
         }
     }
 
+    @NonNull
     @Override
     public MenuInflater getMenuInflater() {
         if (mFrom == DLConstants.FROM_INTERNAL) {
@@ -228,7 +231,7 @@ public class DLBasePluginActivity extends Activity implements DLPlugin {
     }
 
     @Override
-    public Object getSystemService(String name) {
+    public Object getSystemService(@NonNull String name) {
         if (mFrom == DLConstants.FROM_INTERNAL) {
             return super.getSystemService(name);
         } else {
@@ -432,19 +435,16 @@ public class DLBasePluginActivity extends Activity implements DLPlugin {
 //
 //    @Override
 //    public boolean stopService(Intent name) {
-//        // TODO Auto-generated method stub
 //        return super.stopService(name);
 //    }
 //
 //    @Override
 //    public boolean bindService(Intent service, ServiceConnection conn, int flags) {
-//        // TODO Auto-generated method stub
 //        return super.bindService(service, conn, flags);
 //    }
 //
 //    @Override
 //    public void unbindService(ServiceConnection conn) {
-//        // TODO Auto-generated method stub
 //        super.unbindService(conn);
 //    }
 

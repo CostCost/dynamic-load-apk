@@ -24,6 +24,7 @@ import com.ryg.dynamicload.DLPlugin;
  * @author mrsimple
  */
 public interface DLAttachable {
+
     /**
      * when the proxy impl ( {@see DLProxyImpl#launchTargetActivity()} ) launch
      * the plugin activity , dl will call this method to attach the proxy activity
@@ -35,5 +36,5 @@ public interface DLAttachable {
      *            and {@see DLBasePluginFragmentActivity}
      * @param pluginManager DLPluginManager instance, manager the plugins
      */
-    public void attach(DLPlugin proxyActivity, DLPluginManager pluginManager);
+    void attach(DLPlugin proxyActivity, DLPluginManager pluginManager);
 }

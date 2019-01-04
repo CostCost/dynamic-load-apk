@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 27
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 17
         targetSdkVersion 19
     }
 
@@ -33,11 +33,11 @@ android {
 }
 
 dependencies {
-    provided files('../../../lib/build/libs/lib.jar')
-    provided files('external-jars/android-support-v4.jar')
+    implementation files('../../../lib/build/libs/lib.jar')
+    implementation files('external-jars/android-support-v4.jar')
 }
 
-task beforeBuild(dependsOn: ':lib:buildLib') << {
+task beforeBuild(dependsOn: ':lib:buildLib') doLast {
 
 }
 
